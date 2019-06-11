@@ -51,16 +51,25 @@
 // and a default stair argument to reset stair to empty string with each recursive call of steps func
 function steps(n, row = 0, stair = '') {
     // As the Base Case, check if n is 0:
-    if (n === 0) {
+    if (n === row) {
         return;
     }
 
-
-    // If stair.length === n, print stair:
+    // If stair.length === n, print stair and call steps again:
     if (stair.length === n) {
         console.log(stair);
+        // return steps; use return to break out of if statement scope
+        return steps(n, row + 1); // stair arg defaults to ''
     }
 
+    // if stair.length <= row, add a '#' to the stair string,
+    // else, add a space, ' ':
+    if (stair.length <= row) {
+        stair += '#';
+    } else {
+        stair += ' ';
+    }
+    steps(n, row, stair);
 
 }
    
