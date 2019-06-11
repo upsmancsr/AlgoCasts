@@ -49,7 +49,7 @@
 
 // Give steps func a default row argument to prevent infinite loop,
 // and a default stair argument to reset stair to empty string with each recursive call of steps func
-function steps(n, row = 1, stair = '') {
+function steps(n, row = 0, stair = '') {
     // As the Base Case, check if n is 0:
     if (n === 0) {
         return;
