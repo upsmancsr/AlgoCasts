@@ -17,46 +17,52 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-    // loop from 0 to n, for each i print '#' + '' * (n-i) 
-    // if (n < 1) {
-    //     return '';
-    // }
+// ***
+// Solution 1:
+// *** 
+// function steps(n) {
 
-    // let stepsArray = Array(n).fill('');
+//     // Step through a range from 0 to n for each row to be printed:
+//     for (let row = 0; row < n; row++) {
+//         // at each row, initialize an empty string called 'stair':
+//         let stair = '';
 
-    // for (let step = 1; step <= n; step++) {
-        
-    //     for (i of stepsArray) {
-    //         stepsArray[i] = '#';
-    //     }
-    //     return stepsArray;
-    // }
+//         // at each row, step through the coulumns from 0 to n:
+//         for (let column = 0; column < n; column++) {
+//             // if column <= row, add a '#' to the stair string,
+//             // else, add a space, ' ':
+//             if (column <= row) {
+//                 stair += '#';
+//             } else {
+//                 stair += ' ';
+//             }
+//         }
+//         // console.log stair FOR EACH ROW:
+//         console.log(stair);
+//     }
 
-    //
-    // Model Solution:
-    //
+// } // end steps() function
 
-    // Step through a range from 0 to n for each row to be printed:
-    for (let row = 0; row < n; row++) {
-        // at each row, initialize an empty string called 'stair':
-        let stair = '';
+// ***
+// Solution 2 (recursive):
+// ***
 
-        // at each row, step through the coulumns from 0 to n:
-        for (let column = 0; column < n; column++) {
-            // if column <= row, add a '#' to the stair string,
-            // else, add a space, ' ':
-            if (column <= row) {
-                stair += '#';
-            } else {
-                stair += ' ';
-            }
-        }
-        // console.log stair FOR EACH ROW:
-        console.log(stair);
-
+// Give steps func a default row argument to prevent infinite loop,
+// and a default stair argument to reset stair to empty string with each recursive call of steps func
+function steps(n, row = 1, stair = '') {
+    // As the Base Case, check if n is 0:
+    if (n === 0) {
+        return;
     }
 
+
+    // If stair.length === n, print stair:
+    if (stair.length === n) {
+        console.log(stair);
+    }
+
+
 }
+   
 
 module.exports = steps;
