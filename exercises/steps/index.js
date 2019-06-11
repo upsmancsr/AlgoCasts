@@ -20,28 +20,28 @@
 // ***
 // Solution 1:
 // *** 
-// function steps(n) {
+function steps(n) {
 
-//     // Step through a range from 0 to n for each row to be printed:
-//     for (let row = 0; row < n; row++) {
-//         // at each row, initialize an empty string called 'stair':
-//         let stair = '';
+    // Step through a range from 0 to n for each row to be printed:
+    for (let row = 0; row < n; row++) {
+        // at each row, initialize an empty string called 'stair':
+        let stair = '';
 
-//         // at each row, step through the coulumns from 0 to n:
-//         for (let column = 0; column < n; column++) {
-//             // if column <= row, add a '#' to the stair string,
-//             // else, add a space, ' ':
-//             if (column <= row) {
-//                 stair += '#';
-//             } else {
-//                 stair += ' ';
-//             }
-//         }
-//         // console.log stair FOR EACH ROW:
-//         console.log(stair);
-//     }
+        // at each row, step through the coulumns from 0 to n:
+        for (let column = 0; column < n; column++) {
+            // if column <= row, add a '#' to the stair string,
+            // else, add a space, ' ':
+            if (column <= row) {
+                stair += '#';
+            } else {
+                stair += ' ';
+            }
+        }
+        // console.log stair FOR EACH ROW:
+        console.log(stair);
+    }
 
-// } // end steps() function
+} // end steps() function
 
 // ***
 // Solution 2 (recursive):
@@ -49,29 +49,29 @@
 
 // Give steps func a default row argument to prevent infinite loop,
 // and a default stair argument to reset stair to empty string with each recursive call of steps func
-function steps(n, row = 0, stair = '') {
-    // As the Base Case, check if n is 0:
-    if (n === row) {
-        return;
-    }
+// function steps(n, row = 0, stair = '') {
+//     // As the Base Case, check if n is 0:
+//     if (n === row) {
+//         return;
+//     }
 
-    // If stair.length === n, print stair and call steps again:
-    if (stair.length === n) {
-        console.log(stair);
-        // return steps; use return to break out of if statement scope
-        return steps(n, row + 1); // stair arg defaults to ''
-    }
+//     // If stair.length === n, print stair and call steps again:
+//     if (stair.length === n) {
+//         console.log(stair);
+//         // return steps; use return to break out of if statement scope
+//         return steps(n, row + 1); // stair arg defaults to ''
+//     }
 
-    // if stair.length <= row, add a '#' to the stair string,
-    // else, add a space, ' ':
-    if (stair.length <= row) {
-        stair += '#';
-    } else {
-        stair += ' ';
-    }
-    steps(n, row, stair);
+//     // if stair.length <= row, add a '#' to the stair string,
+//     // else, add a space, ' ':
+//     if (stair.length <= row) {
+//         stair += '#';
+//     } else {
+//         stair += ' ';
+//     }
+//     steps(n, row, stair);
 
-}
+// }
    
 
 module.exports = steps;
