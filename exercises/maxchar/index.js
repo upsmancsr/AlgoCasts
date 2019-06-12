@@ -29,10 +29,9 @@ function maxChar(str) {
     console.log('max character is', maxCharacter);
     return maxCharacter;
 
-    
 
 //     // Solution to return array of all characters with max counts
-//     // in case there are multiple characters with max counts
+//     // in case there are multiple characters with max counts:
 //     const maxChars = Object.keys(characterCounts).filter(x => {
 //         return characterCounts[x] == Math.max.apply(null, 
 //         Object.values(characterCounts));
