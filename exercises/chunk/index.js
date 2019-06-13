@@ -32,17 +32,36 @@
 // Solution 2 (slice):
 // ***
 
+// function chunk(array, size) {
+//     // initialize an empty array to hold the chunks:
+//     let arrayOfChunks = [];
+//     // initialize starting index at 0 to start the while loop:
+//     let index = 0;
+//     // while loop from starting index to array.length
+//     while (index < array.length) {
+//         // push an array from input array with length === size into arrayOfChunks
+//         arrayOfChunks.push(array.slice(index, index + size));
+//         // increment index by size so next loop starts after last chunk
+//         index += size;
+//     }
+//     return arrayOfChunks;2
+// }
+
+// ***
+// Solution 3 (splice):
+// ***
+
 function chunk(array, size) {
     // initialize an empty array to hold the chunks:
     let arrayOfChunks = [];
-    // initialize starting index at 0 to start the while loop:
-    let index = 0;
-    // while loop from starting index to array.length
-    while (index < array.length) {
-        // push an array from input array with length === size into arrayOfChunks
-        arrayOfChunks.push(array.slice(index, index + size));
-        // increment index by size so next loop starts after last chunk
-        index += size;
+    // initialize a copy of input array on which to perform splicing:
+    let arrayCopy = [...array];
+
+    // while loop while arrayCopy.length > 0
+    // with each splice, arrayCopy with become shorter:
+    while (arrayCopy.length > 0) {
+        // push a spliced array from arrayCopy with length === size into arrayOfChunks
+        arrayOfChunks.push(arrayCopy.splice(0, size));
     }
     return arrayOfChunks;2
 }
