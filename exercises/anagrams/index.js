@@ -44,12 +44,16 @@ function anagrams(stringA, stringB) {
     }
 
     let stringBMap = {};
+    // for (char of stringBRegExp) {
+    //     if (stringBMap[char]) {
+    //         stringBMap[char]++;
+    //     } else {
+    //         stringBMap[char] = 1;
+    //     }
+    // }
+    // Alternative way to increment character counts:
     for (char of stringBRegExp) {
-        if (stringBMap[char]) {
-            stringBMap[char]++;
-        } else {
-            stringBMap[char] = 1;
-        }
+        stringBMap[char] = stringBMap[char] + 1 || 1;
     }
 
     for (char of stringARegExp) {
