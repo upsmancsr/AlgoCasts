@@ -8,6 +8,23 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// *** Notes:
+// Where instructions say "Print out the n-th entry", assume entries start at n=0
+
+function fib(n) {
+    let fibSeries = [];
+    for (let i = 0; i <= n; i++) {
+        if (i === 0) {
+            fibSeries[i] = 0;
+        } else if (i === 1) {
+            fibSeries[i] = 1;
+        } else {
+            fibSeries[i] = fibSeries[i - 2] + fibSeries[i - 1];
+        }
+    }
+    console.log(fibSeries);
+    return fibSeries[n];
+
+}
 
 module.exports = fib;
