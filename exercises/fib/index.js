@@ -11,14 +11,28 @@
 // *** Notes:
 // Where instructions say "Print out the n-th entry", assume entries start at n=0
 
-function fib(n) {
-    let fibSeries = [0, 1];
-    for (let i = 2; i <= n; i++) {
-        fibSeries[i] = fibSeries[i - 2] + fibSeries[i - 1];
-    }
-    console.log(fibSeries);
-    return fibSeries[n];
+// ***
+// Solution 1 (interative):
+// ***
+// function fib(n) {
+//     let fibSeries = [0, 1];
+//     for (let i = 2; i <= n; i++) {
+//         fibSeries[i] = fibSeries[i - 2] + fibSeries[i - 1];
+//     }
+//     console.log(fibSeries);
+//     return fibSeries[n];
 
+// }
+
+// ***
+// Solution 2 (recursive):
+// ***
+function fib(n) {
+    if (n < 2) {
+        return n;
+    }
+
+    return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
