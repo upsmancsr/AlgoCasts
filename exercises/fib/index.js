@@ -19,7 +19,7 @@
 //     for (let i = 2; i <= n; i++) {
 //         fibSeries[i] = fibSeries[i - 2] + fibSeries[i - 1];
 //     }
-//     console.log(fibSeries);
+//     // console.log(fibSeries);
 //     return fibSeries[n];
 
 // }
@@ -27,12 +27,26 @@
 // ***
 // Solution 2 (recursive):
 // ***
+// function fib(n) {
+//     if (n < 2) {
+//         return n;
+//     }
+
+//     return fib(n - 1) + fib(n - 2);
+// }
+// *** NOTE: Basic recursive solution has O(2^n) EXPONENTIAL run-time complexity
+
+// ***
+// Solution 2 (recursive + momoization):
+// ***
 function fib(n) {
+    // console.log('fib called with n = ', n);
     if (n < 2) {
         return n;
     }
 
     return fib(n - 1) + fib(n - 2);
 }
+// *** NOTE: Basic recursive solution has O(2^n) EXPONENTIAL run-time complexity
 
 module.exports = fib;
