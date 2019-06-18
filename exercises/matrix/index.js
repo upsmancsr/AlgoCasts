@@ -17,13 +17,15 @@
 
 function matrix(n) {
     // Create empty array of arrays to hold final matrix:
-    // const matrix = Array(n).fill([]);
+    // const matrix = Array(n).fill([]); // *Note: this doesn't work because each [] is a reference to the same array
+    // 2 options that both work:
     let matrix = new Array(n).fill().map(() => new Array(n).fill(''));
     // const matrix = [];
     // for (let i = 0; i < n; i++) {
     //     matrix.push([]);
     // }
     console.log(matrix);
+    
     // Create counter variable to track current number to be placed in matrix:
     let counter = 1;
     // Create start column and end column:
