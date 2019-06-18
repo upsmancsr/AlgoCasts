@@ -10,6 +10,26 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack {
+    constructor() {
+        this.data = [];
+    }
+
+    // push method to add record to the "top" of the stack:
+    push(record) {
+        this.data.unshift(record);
+    }
+
+    // pop method to remove record from the "bottom" of the stack:
+    pop() {
+        return this.data.shift();
+    }
+
+    // peek method to return but not remove element at "top" of stack:
+    peek() {
+        return this.data[0];
+    }
+
+}
 
 module.exports = Stack;

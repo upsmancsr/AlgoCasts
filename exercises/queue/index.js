@@ -20,7 +20,7 @@ class Queue {
 
     // Define a class method for removing a record from the END of the data array
     // and return the record:
-    remove(record) {
+    remove() {
         return this.data.pop();
     }
 
