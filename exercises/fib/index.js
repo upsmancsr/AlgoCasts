@@ -27,6 +27,7 @@
 // ***
 // Solution 2 (recursive):
 // ***
+// *** Basic recursive solution has O(2^n) EXPONENTIAL run-time complexity.
 // function fib(n) {
 //     if (n < 2) {
 //         return n;
@@ -34,19 +35,34 @@
 
 //     return fib(n - 1) + fib(n - 2);
 // }
-// *** NOTE: Basic recursive solution has O(2^n) EXPONENTIAL run-time complexity
 
 // ***
-// Solution 2 (recursive + momoization):
+// Solution 3 (recursive + memoization):
 // ***
+// *** Memoization improves run-time of recursive solution
+// *** by storing the arguments and results of each function call for later reference.
+function memoize(fn) {
+    const cache = {};
+    return function(...args) { // number of args is arbitrary,i.e., not defined
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    };
+}
+
 function fib(n) {
-    // console.log('fib called with n = ', n);
     if (n < 2) {
         return n;
     }
-
     return fib(n - 1) + fib(n - 2);
 }
-// *** NOTE: Basic recursive solution has O(2^n) EXPONENTIAL run-time complexity
+
+fib = memoize(fib);
+
 
 module.exports = fib;
