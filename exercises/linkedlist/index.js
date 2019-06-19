@@ -23,7 +23,7 @@ class LinkedList {
         this.head = new Node(data, this.head);
     }
 
-    // test comment
+
 }
 
 module.exports = { Node, LinkedList };
