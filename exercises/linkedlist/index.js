@@ -124,11 +124,15 @@ class LinkedList {
 
     // getAt method to return the full node found at the given index in the list:
     getAt(targetIndex) {
-        let index = 0;
         let node = this.head;
+        // If list is empty, return null:
         if (!node) {
             return null;
         }
+        // Initialize a counter index to track index while traversign the list:
+        let index = 0;
+
+        // Step through the list until targetIndex or end of list is reached:
         while (node) {
             if (index === targetIndex) {
                 return node;
@@ -137,11 +141,9 @@ class LinkedList {
                 index++;
             }
         }
-        if (index !== targetIndex) {
-            return null;
-        }
-    }
 
+        return null;
+    }
 }
 
 module.exports = { Node, LinkedList };
