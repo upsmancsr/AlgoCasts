@@ -82,12 +82,15 @@ class LinkedList {
         let previousNode = null;
         let node = this.head;
 
-        if (!node) {
-            return null;
-        } else if (!node.next) {
-            this.head = null;
-            return;
-        }
+        if (!node || !node.next) {
+            return this.head = null;  // return satisfies !node case and this.head = null satisfies !node.next case
+            //this.head = null;
+            //return this.head = null;;
+        } 
+        // else if (!node.next) {
+        //     this.head = null;
+        //     return;
+        // }
 
         while (node.next) {
             previousNode = node;
@@ -96,10 +99,24 @@ class LinkedList {
 
         previousNode.next = null;
 
-
     }
 
+    insertLast(data) {
+        const newNode = new Node(data, null);
 
+        if (!this.head) {
+            this.head = newNode;
+            return;
+        } 
+
+        let node = this.head;
+
+        while (node.next) {
+            node = node.next;
+        }
+
+        node.next = newNode;
+    }
 
 }
 

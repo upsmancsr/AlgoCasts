@@ -75,6 +75,12 @@ describe('Clear', () => {
 });
 
 describe('RemoveFirst', () => {
+  test('RemoveLast removes the last node when list is empty', () => {
+    const l = new List();
+    expect(() => {
+      l.removeLast();
+    }).not.toThrow();
+  });
   test('returns null when the list has a size of 0', () => {
     const l = new List();
     l.removeFirst();
@@ -142,7 +148,7 @@ describe('RemoveLast', () => {
   });
 });
 
-describe.skip('InsertLast', () => {
+describe('InsertLast', () => {
   test('adds to the end of the list', () => {
     const l = new List();
     l.insertFirst('a');
