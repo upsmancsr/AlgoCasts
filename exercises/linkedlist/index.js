@@ -124,22 +124,70 @@ class LinkedList {
 
     // getAt method to return the full node found at the given index in the list:
     getAt(targetIndex) {
-        let index = 0;
+        // let node = this.head;
+        // // If list is empty, return null:
+        // if (!node) {
+        //     return null;
+        // }
+        // // Initialize a counter index to track index while traversign the list:
+        // let index = 0;
+
+        // // Step through the list until targetIndex or end of list is reached:
+        // while (node) {
+        //     if (index === targetIndex) {
+        //         return node;
+        //     } else if (node.next) {
+        //         node = node.next;
+        //         index++;
+        //     }
+        // }
+
+        // return null;
+
+        // Model solution:
+        let counter = 0;
         let node = this.head;
-        if (!node) {
-            return null;
-        }
         while (node) {
-            if (index === targetIndex) {
-                return node;
-            } else if (node.next) {
-                node = node.next;
-                index++;
-            }
+        if (counter === targetIndex) {
+            return node;
         }
-        if (index !== targetIndex) {
-            return null;
+
+        counter++;
+        node = node.next;
         }
+        return null;
+    }
+
+    // removeAt method to return the full node found at the given index in the list:
+    removeAt(targetIndex) {
+        // edge cases:
+            // empty list
+            // targetIndex === head index
+            // targetIndex > last index, ie, targetIndex >= list size
+            // targetIndex === last index
+        
+        // If list is empty, return:
+        if (!this.head) {
+            return;
+        }
+
+        // if targetIndex is 0 (head), use removeFirst:
+        if (targetIndex === 0) {
+            // this.head = this.head.next;
+            return this.removeFirst();
+            // return;
+        }
+
+        // // Use getAt to get the node before the targetNode and set next to the node after the targetIndex:
+        const previousNode = this.getAt(targetIndex - 1);
+
+        if (!previousNode || !previousNode.next) {
+            return;
+        }
+
+        // Set previousNode.next to the node 2 spots ahead:
+        previousNode.next = previousNode.next.next;
+
     }
 
 }
