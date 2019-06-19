@@ -144,6 +144,39 @@ class LinkedList {
 
         return null;
     }
+
+    // removeAt method to return the full node found at the given index in the list:
+    removeAt(targetIndex) {
+        // edge cases:
+            // empty list with targetIndex 0
+            // empty list with targetIndex > 0
+            // targetIndex === head index
+            // targetIndex > last index, ie, targetIndex >= list size
+            // targetIndex === last index
+        
+        // If list is empty, return:
+        if (!this.head) {
+            return;
+        }
+
+        // if targetIndex is 0 (head), use removeFirst:
+        if (targetIndex === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        // // Use getAt to get the node before the targetNode and set next to the node after the targetIndex:
+        const previousNode = this.getAt(targetIndex - 1);
+
+        if (!previousNode) {
+            return;
+        }
+
+        // Set previousNode.next to the node 2 spots ahead:
+        previousNode.next = previousNode.next.next;
+
+    }
+
 }
 
 module.exports = { Node, LinkedList };
