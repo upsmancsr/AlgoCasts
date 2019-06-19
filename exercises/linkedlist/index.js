@@ -37,6 +37,26 @@ class LinkedList {
         return counter;
     }
 
+    // getFirst method to return first node (head):
+    getFirst() {
+        return this.head;
+    }
+
+    // getLast method to return the last node (tail):
+    getLast() {
+
+        let node = this.head;
+
+        if (!node) {
+            return null;
+        }
+
+        while (node.next) {
+            node = node.next;
+        }
+        
+        return node;
+    }
 
 }
 
