@@ -58,6 +58,28 @@ class LinkedList {
         return node;
     }
 
+    // clear method to clear the linked list
+    // ie, if size method is called it returns 0:
+    clear() {
+        this.head = null;
+    }
+
+    // removeFirst method to remove head node and shift head to the next
+    removeFirst() {
+        // If there is no head, return
+        // I added a test for a linked list of size 0.
+        // Without the if statement, the function breaks because no this.head.next
+        if (!this.head) {  
+            return;
+        }
+
+        this.head = this.head.next;
+        return this.head;
+    }
+
+
+
+
 }
 
 module.exports = { Node, LinkedList };
