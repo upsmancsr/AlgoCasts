@@ -22,6 +22,8 @@ class LinkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+
+    // test comment
 }
 
 module.exports = { Node, LinkedList };
