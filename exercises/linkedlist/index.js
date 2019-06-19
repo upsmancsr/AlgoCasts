@@ -117,6 +117,8 @@ class LinkedList {
 
         const lastNode = this.getLast();
 
+        
+
         lastNode.next = newNode;
     }
 
