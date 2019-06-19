@@ -82,12 +82,13 @@ class LinkedList {
         let previousNode = null;
         let node = this.head;
 
-        if (!node) {
-            return null;
-        } else if (!node.next) {
-            this.head = null;
-            return;
-        }
+        if (!node || !node.next) {
+            //this.head = null;
+            return this.head = null;;
+        } //else if (!node.next) {
+        //     this.head = null;
+        //     return;
+        // }
 
         while (node.next) {
             previousNode = node;
@@ -95,7 +96,6 @@ class LinkedList {
         }
 
         previousNode.next = null;
-
 
     }
 
