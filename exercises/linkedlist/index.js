@@ -19,11 +19,25 @@ class LinkedList {
         this.head = null;   // By default a new LinkedList has no head
     }
 
+    // insertFirst method to replace head node with new node that points to previous head ad next:
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
 
-    // test comment
+    // size method to return the number of nodes in the LL:
+    size() {
+        let counter = 0;
+
+        let node = this.head;
+
+        while (node) {
+            counter++;
+            node = node.next;
+        }
+        return counter;
+    }
+
+
 }
 
 module.exports = { Node, LinkedList };
