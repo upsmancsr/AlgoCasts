@@ -14,6 +14,14 @@ class Node {
     }
 }
 
-class LinkedList {}
+class LinkedList {
+    constructor() {
+        this.head = null;   // By default a new LinkedList has no head
+    }
+
+    insertFirst(node) {
+
+    }
+}
 
 module.exports = { Node, LinkedList };
