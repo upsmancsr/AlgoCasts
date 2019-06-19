@@ -64,7 +64,10 @@ class LinkedList {
         this.head = null;
     }
 
-
+    // removeFirst method to remove head node and shift head to the next
+    removeFirst() {
+        this.head = this.head.next;
+    }
 
 
 }
