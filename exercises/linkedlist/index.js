@@ -19,8 +19,8 @@ class LinkedList {
         this.head = null;   // By default a new LinkedList has no head
     }
 
-    insertFirst(node) {
-
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
     }
 }
 
