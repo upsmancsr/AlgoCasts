@@ -44,7 +44,6 @@ class LinkedList {
 
     // getLast method to return the last node (tail):
     getLast() {
-        let counter = 0;
 
         let node = this.head;
 
@@ -53,7 +52,6 @@ class LinkedList {
         }
 
         while (node.next) {
-            counter++;
             node = node.next;
         }
         
