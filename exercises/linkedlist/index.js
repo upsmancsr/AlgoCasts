@@ -123,6 +123,14 @@ class LinkedList {
         } 
         
         lastNode.next = newNode;
+
+        // * Alternatively:
+        // if (lastNode) {
+        //     lastNode.next = newNode;
+        // } else {
+        //     this.head = newNode;
+
+        // }
     }
 
 
