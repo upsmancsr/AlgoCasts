@@ -83,9 +83,11 @@ class LinkedList {
         let node = this.head;
 
         if (!node || !node.next) {
+            return this.head = null;  // return satisfies !node case and this.head = null satisfies !node.next case
             //this.head = null;
-            return this.head = null;;
-        } //else if (!node.next) {
+            //return this.head = null;;
+        } 
+        // else if (!node.next) {
         //     this.head = null;
         //     return;
         // }
