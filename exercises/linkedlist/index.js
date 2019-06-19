@@ -41,6 +41,25 @@ class LinkedList {
     getFirst() {
         return this.head;
     }
+
+    // getLast method to return the last node (tail):
+    getLast() {
+        let counter = 0;
+
+        let node = this.head;
+
+        if (!node) {
+            return null;
+        }
+
+        while (node.next) {
+            counter++;
+            node = node.next;
+        }
+        
+        return node;
+    }
+
 }
 
 module.exports = { Node, LinkedList };
