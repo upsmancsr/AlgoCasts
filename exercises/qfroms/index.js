@@ -14,6 +14,31 @@
 
 const Stack = require('./stack');
 
-class Queue {}
+// A Queue needs to follow *FIFO* ordering
+class Queue {
+    constructor() {
+        this.stackA = new Stack();
+        this.stackB = new Stack();
+    }
+
+    // add method needs to add a record to the end of stackA:
+    add(record) {
+        this.stackA.push(record);
+    }
+
+    remove() {
+        while (this.stackA.peek()) {
+            this.stackB.push(this.stackA.pop());
+        }
+
+        const record = this.stackB.pop();
+
+        while (this.stackB.peek()) {
+            this.stackA.push(this.stackB.pop());
+        }
+
+        return record;
+    }
+}
 
 module.exports = Queue;
