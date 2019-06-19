@@ -76,7 +76,28 @@ class LinkedList {
         this.head = this.head.next;
         return this.head;
     }
+    // removeLast function to remove last node in the LL
+    // need to keep track of previous node while traversing the LL
+    removeLast() {
+        let previousNode = null;
+        let node = this.head;
 
+        if (!node) {
+            return null;
+        } else if (!node.next) {
+            this.head = null;
+            return;
+        }
+
+        while (node.next) {
+            previousNode = node;
+            node = node.next;
+        }
+
+        previousNode.next = null;
+
+
+    }
 
 
 
