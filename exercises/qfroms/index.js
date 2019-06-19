@@ -39,6 +39,20 @@ class Queue {
 
         return record;
     }
+
+    peek() {
+        while (this.stackA.peek()) {
+            this.stackB.push(this.stackA.pop());
+        }
+
+        const record = this.stackB.peek();
+
+        while (this.stackB.peek()) {
+            this.stackA.push(this.stackB.pop());
+        }
+
+        return record;
+    }
 }
 
 module.exports = Queue;
