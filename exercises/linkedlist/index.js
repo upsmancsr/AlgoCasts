@@ -104,18 +104,42 @@ class LinkedList {
     insertLast(data) {
         const newNode = new Node(data, null);
 
-        if (!this.head) {
+        const lastNode = this.getLast();
+
+        if (!lastNode) {
             this.head = newNode;
             return;
         } 
+        
+        lastNode.next = newNode;
 
+        // * Alternatively:
+        // if (lastNode) {
+        //     lastNode.next = newNode;
+        // } else {
+        //     this.head = newNode;
+
+        // }
+    }
+
+    // getAt method to return the full node found at the given index in the list:
+    getAt(targetIndex) {
+        let index = 0;
         let node = this.head;
-
-        while (node.next) {
-            node = node.next;
+        if (!node) {
+            return null;
         }
-
-        node.next = newNode;
+        while (node) {
+            if (index === targetIndex) {
+                return node;
+            } else if (node.next) {
+                node = node.next;
+                index++;
+            }
+        }
+        if (index !== targetIndex) {
+            return null;
+        }
     }
 
 }
