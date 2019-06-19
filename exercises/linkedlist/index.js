@@ -37,7 +37,10 @@ class LinkedList {
         return counter;
     }
 
-
+    // getFirst method to return first node (head):
+    getFirst() {
+        return this.head;
+    }
 }
 
 module.exports = { Node, LinkedList };
