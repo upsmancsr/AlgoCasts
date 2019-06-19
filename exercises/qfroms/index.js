@@ -13,6 +13,7 @@
 //     q.remove(); // returns 2
 
 const Stack = require('./stack');
+// * Stack methods are push, pop, and peek
 
 // A Queue needs to follow *FIFO* ordering
 class Queue {
@@ -26,12 +27,38 @@ class Queue {
         this.stackA.push(record);
     }
 
+    // remove method:
     remove() {
+        console.log(this.stackA, this.stackB);
+
+        // While stackA has at least one record, remove (pop) the ending record and push it to the end of stackB.
+        // After this while loop runs, stackB will be a reverse copy of stackA, and stackA will be empty:
+        while (this.stackA.peek()) {
+            this.stackB.push(this.stackA.pop());
+        }
+        console.log(this.stackA, this.stackB);
+
+        // Remove (pop) the record at the end of stackB and store it for later.
+        // this should be the first record that was added to the Queue:
+        const record = this.stackB.pop();
+        console.log(this.stackA, this.stackB, record);
+
+        // While stackB has at least one record, remove (pop) the end record and push it to the end of stackA.
+        // After this while loop runs, stackA will be in its original form, less the starting record.
+        while (this.stackB.peek()) {
+            this.stackA.push(this.stackB.pop());
+        }
+        console.log(this.stackA, this.stackB);
+        // return the record stored earlier
+        return record;
+    }
+
+    peek() {
         while (this.stackA.peek()) {
             this.stackB.push(this.stackA.pop());
         }
 
-        const record = this.stackB.pop();
+        const record = this.stackB.peek();
 
         while (this.stackB.peek()) {
             this.stackA.push(this.stackB.pop());
