@@ -58,6 +58,15 @@ class LinkedList {
         return node;
     }
 
+    // clear method to clear the linked list
+    // ie, if size method is called it returns 0:
+    clear() {
+        this.head = null;
+    }
+
+
+
+
 }
 
 module.exports = { Node, LinkedList };
