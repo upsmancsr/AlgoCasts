@@ -221,7 +221,23 @@ class LinkedList {
 
         // set previousNode.next to be newNode:
         previousNode.next = newNode;
+    }
 
+    forEach(fn) {
+
+        // if (!this.head) {
+        //     return;
+        // }
+
+        let node = this.head;
+        let counter = 0;
+
+        while (node) {
+            fn(node, counter);
+            node = node.next;
+            counter++;
+        }
+        return;
     }
 }
 
