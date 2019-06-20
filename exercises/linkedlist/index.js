@@ -21,7 +21,8 @@ class LinkedList {
 
     // insertFirst method to replace head node with new node that points to previous head ad next:
     insertFirst(data) {
-        this.head = new Node(data, this.head);
+        // this.head = new Node(data, this.head);
+        this.insertAt(data, 0);
     }
 
     // size method to return the number of nodes in the LL:
@@ -173,9 +174,8 @@ class LinkedList {
 
         // if targetIndex is 0 (head), use removeFirst:
         if (targetIndex === 0) {
-            // this.head = this.head.next;
-            return this.removeFirst();
-            // return;
+            this.head = this.head.next;
+            return this.head;
         }
 
         // // Use getAt to get the node before the targetNode and set next to the node after the targetIndex:
@@ -199,7 +199,7 @@ class LinkedList {
         
         // If list is empty, use insertFirst to create head node with data:
         if (!this.head || index === 0) {
-            this.insertFirst(data);
+            this.head = new Node(data, this.head);
             return;
         }
 
