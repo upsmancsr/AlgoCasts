@@ -206,22 +206,22 @@ class LinkedList {
         // If list is not empty...
 
         // get the node at index - 1:
-        const previousNode = this.getAt(index - 1);
+        // const previousNode = this.getAt(index - 1);
 
         // if no previousNode or previousNode, use insertLast to create tail node with data:
-        if (!previousNode || !previousNode.next) {
-            this.insertLast(data);
-            return;
-        }
+        // if (!previousNode || !previousNode.next) {
+        //     this.insertLast(data);
+        //     return;
+        // }
+        // * Alternatively, with previousNode above commented out:
+        const previousNode = this.getAt(index - 1) || this.getLast();
 
-        // create new Node:
-        const newNode = new Node(data);
+        // create new Node with next === previousNode.next:
+        const newNode = new Node(data, previousNode.next);
 
-        // set newNode.next to be the node at index and set previousNode.next to be newNode:
-        if (previousNode.next) {
-            newNode.next = previousNode.next;
-            previousNode.next = newNode;
-        }
+        // set previousNode.next to be newNode:
+        previousNode.next = newNode;
+
     }
 }
 
