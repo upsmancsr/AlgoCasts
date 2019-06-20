@@ -173,9 +173,8 @@ class LinkedList {
 
         // if targetIndex is 0 (head), use removeFirst:
         if (targetIndex === 0) {
-            // this.head = this.head.next;
-            return this.removeFirst();
-            // return;
+            this.head = this.head.next;
+            return this.head;
         }
 
         // // Use getAt to get the node before the targetNode and set next to the node after the targetIndex:
