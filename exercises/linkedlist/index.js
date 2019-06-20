@@ -225,15 +225,17 @@ class LinkedList {
 
     forEach(fn) {
 
-        if (!this.head) {
-            return;
-        }
+        // if (!this.head) {
+        //     return;
+        // }
 
         let node = this.head;
+        let counter = 0;
 
         while (node) {
-            fn(node);
+            fn(node, counter);
             node = node.next;
+            counter++;
         }
         return;
     }
