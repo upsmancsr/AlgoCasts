@@ -199,7 +199,7 @@ class LinkedList {
         
         // If list is empty, use insertFirst to create head node with data:
         if (!this.head || index === 0) {
-            this.insertFirst(data);
+            this.head = new Node(data, this.head);
             return;
         }
 
