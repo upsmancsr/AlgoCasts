@@ -237,7 +237,16 @@ class LinkedList {
             node = node.next;
             counter++;
         }
-        return;
+    }
+
+    // Define a generator function with key of Symbol.iterator
+    // to enable for...of loops over the list:
+    *[Symbol.iterator]() {  // Symbol.iterator specifies the default iterator for an object. 
+        let node = this.head;
+        while (node) {
+            yield node;
+            node = node.next;
+        }
     }
 }
 
