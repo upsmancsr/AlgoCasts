@@ -190,6 +190,39 @@ class LinkedList {
 
     }
 
+    // insertAt method takes data and index as args, creates new Node with data, and inserts at index:
+    insertAt(data, index) {
+        // Cases:
+            // if list is empty, insert node at head 
+            // if list has elements and target index is 0, insert at head
+            // if index is out of bounds (getAt returns null), insert node at tail
+        
+        // If list is empty, use insertFirst to create head node with data:
+        if (!this.head || index === 0) {
+            this.insertFirst(data);
+            return;
+        }
+
+        // If list is not empty...
+
+        // get the node at index - 1:
+        // const previousNode = this.getAt(index - 1);
+
+        // if no previousNode or previousNode, use insertLast to create tail node with data:
+        // if (!previousNode || !previousNode.next) {
+        //     this.insertLast(data);
+        //     return;
+        // }
+        // * Alternatively, with previousNode above commented out:
+        const previousNode = this.getAt(index - 1) || this.getLast();
+
+        // create new Node with next === previousNode.next:
+        const newNode = new Node(data, previousNode.next);
+
+        // set previousNode.next to be newNode:
+        previousNode.next = newNode;
+
+    }
 }
 
 module.exports = { Node, LinkedList };
