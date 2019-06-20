@@ -21,7 +21,8 @@ class LinkedList {
 
     // insertFirst method to replace head node with new node that points to previous head ad next:
     insertFirst(data) {
-        this.head = new Node(data, this.head);
+        // this.head = new Node(data, this.head);
+        this.insertAt(data, 0);
     }
 
     // size method to return the number of nodes in the LL:
