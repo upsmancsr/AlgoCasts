@@ -47,13 +47,19 @@ class Tree {
         const arr = [this.root];
 
         // While there are elements in arr:
-        while (arr.length) {   
+        while (arr.length) {  
+            console.log(arr); 
+
             // remove first element from arr and save it as node:
+            // *** node is used below in the call to the input function
             const node = arr.shift();
+            console.log(arr); 
 
             // push each child of node into arr using array ... destructuring:
             arr.push(...node.children);
+            console.log(arr); 
 
+            // *** call input functin with node as argument
             fn(node);
         }
     }

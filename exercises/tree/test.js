@@ -44,6 +44,7 @@ describe('Tree', () => {
     t.root.children[0].add('d');
 
     t.traverseBF(node => {
+      console.log(node);
       letters.push(node.data);
     });
 
