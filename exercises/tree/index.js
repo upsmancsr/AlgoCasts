@@ -40,7 +40,6 @@ class Tree {
     // traverseBF takes a function as arg and calls it for each node.
     // See test file for example.
     // traverseBF only needs to advance from node to node in the right order.
-
     traverseBF(fn) {
         // Initialize an array with starting element of this.root.
         // Remember that this.root is a Node with a children array:
@@ -55,14 +54,30 @@ class Tree {
             const node = arr.shift();
             console.log(arr); 
 
-            // push each child of node into arr using array ... destructuring:
+            // push each child of node onto the END of arr:
             arr.push(...node.children);
             console.log(arr); 
 
-            // *** call input functin with node as argument
+            // *** call input functin and pass it node as argument:
             fn(node);
         }
     }
+
+    // traverseDF method:
+    traverseDF(fn) {
+        const arr = [this.root];
+
+        while (arr.length) {
+            const node = arr.shift();
+
+            // add child Nodes to the START of arr:
+            arr.unshift(...node.children);
+
+            fn(node);
+        }
+
+    }
+
 }
 
 module.exports = { Tree, Node };
