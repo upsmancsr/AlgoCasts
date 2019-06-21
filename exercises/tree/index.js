@@ -29,9 +29,40 @@ class Node {
             return childNode.data !== childData;
         });
     }
-
 }
 
-class Tree {}
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+
+    // BFT method to traverse tree breadth-first. 
+    // traverseBF takes a function as arg and calls it for each node.
+    // See test file for example.
+    // traverseBF only needs to advance from node to node in the right order.
+
+    traverseBF(fn) {
+        // Initialize an array with starting element of this.root.
+        // Remember that this.root is a Node with a children array:
+        const arr = [this.root];
+
+        // While there are elements in arr:
+        while (arr.length) {  
+            console.log(arr); 
+
+            // remove first element from arr and save it as node:
+            // *** node is used below in the call to the input function
+            const node = arr.shift();
+            console.log(arr); 
+
+            // push each child of node into arr using array ... destructuring:
+            arr.push(...node.children);
+            console.log(arr); 
+
+            // *** call input functin with node as argument
+            fn(node);
+        }
+    }
+}
 
 module.exports = { Tree, Node };
