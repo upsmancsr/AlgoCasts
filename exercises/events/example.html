@@ -5,6 +5,21 @@
   <h1>Click the button</h1>
   <button>Me!</button>
   <script>
-    
+    // console.log a message when button is clicked:
+      // 'button' identifies the botton element in the DOM
+      // 'click' is a JQuery event name called with .on
+    $('button').on('click', () => {
+      console.log('Hello');
+    });
+
+    $('button').on('click', () => {
+      console.log('there');
+    });
+
+    // automatilly trigger the 'click' event defined above when page loads:
+    $('button').trigger('click');
+
+    // Deregister the on click event handler, so when button is clicked nothing is triggered:
+    $('button').off('click');
   </script>
 </body>
