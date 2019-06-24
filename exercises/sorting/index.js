@@ -1,8 +1,25 @@
 // --- Directions
 // Implement bubbleSort, selectionSort, and mergeSort
 
+// Each function accepts an array arg and returns an array sorted from least to greatest.
+
 function bubbleSort(arr) {
 
+    // for loop over length of arr:
+    for (let i = 0; i < arr.length; i++) {
+        // at each element i, for loop from 0 to i (or: 0 to arr.length - 1):
+        for (let j = 0; j <= arr.length - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                greater = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = greater;
+            }
+        }
+    }
+
+    // return the sorted array:
+    console.log(arr);
+    return arr;
 }
 
 function selectionSort(arr) {
