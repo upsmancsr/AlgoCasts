@@ -8,7 +8,7 @@ function bubbleSort(arr) {
     // for loop over length of arr:
     for (let i = 0; i < arr.length; i++) {
         // at each element i, for loop from 0 to i (or: 0 to arr.length - 1):
-        for (let j = 0; j <= arr.length - i; j++) {
+        for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j + 1]) {
                 greater = arr[j];
                 arr[j] = arr[j + 1];
@@ -23,7 +23,19 @@ function bubbleSort(arr) {
 }
 
 function selectionSort(arr) {
-
+    // for loop over length of arr:
+    for (let i = 0; i < arr.length; i++) {
+        // at each element i, for loop from 0 to i (or: 0 to arr.length - 1):
+        let indexOfMin = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[indexOfMin]) {
+                greater = arr[indexOfMin];
+                arr[indexOfMin] = arr[j];
+                arr[j] = greater;
+            }
+        }
+    }
+    return arr;
 }
 
 function mergeSort(arr) {
