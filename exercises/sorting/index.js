@@ -41,27 +41,64 @@ function selectionSort(arr) {
 function mergeSort(arr) {
     if (arr.length === 1) {
         return arr;
-      }
+    }
+
+    // middle index:
+    const midPoint = Math.floor(arr.length / 2);
+
+    const left = arr.slice(0, midPoint);
+
+    const right = arr.slice(midPoint);
+
+    return merge(mergeSort(left), mergeSort(right));
     
-      const center = Math.floor(arr.length / 2);
-      const left = arr.slice(0, center);
-      const right = arr.slice(center);
-    
-      return merge(mergeSort(left), mergeSort(right));
 }
 
+// merge function merges two sorted arrays into one sorted array
 function merge(left, right) {
-    const results = [];
-  
+    // initialize result array
+    const result = [];
+    // While there are elements in both left and right arrays:
     while (left.length && right.length) {
-      if (left[0] < right[0]) {
-        results.push(left.shift());
-      } else {
-        results.push(right.shift());
-      }
+        // If the first element of left is less than the first element of right:
+        if (left[0] < right[0]) {
+            // shift the element from left and push into result array (ie, put it at first index of result array):
+            result.push(left.shift());
+        } else {
+            // shift the element from right and push into result array (ie, put it at first index of result array):
+            result.push(right.shift());
+        }     
     }
-  
-    return [...results, ...left, ...right];
-  }
+    
+    // push any remaining elements from left or right onto result array and return result array:
+    return [...result, ...left, ...right];
+
+}
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
+
+// function mergeSort(arr) {
+//     if (arr.length === 1) {
+//         return arr;
+//       }
+    
+//       const center = Math.floor(arr.length / 2);
+//       const left = arr.slice(0, center);
+//       const right = arr.slice(center);
+    
+//       return merge(mergeSort(left), mergeSort(right));
+// }
+
+// function merge(left, right) {
+//     const results = [];
+  
+//     while (left.length && right.length) {
+//       if (left[0] < right[0]) {
+//         results.push(left.shift());
+//       } else {
+//         results.push(right.shift());
+//       }
+//     }
+  
+//     return [...results, ...left, ...right];
+// }
