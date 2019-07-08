@@ -53,11 +53,11 @@ function pyramid(n, row = 0, level = '') {
       const midpoint = Math.floor((2 * n - 1) / 2);
       let add;
       if (midpoint - row <= level.length && midpoint + row >= level.length) {
-        add = '#';
+        newChar = '#';
       } else {
-        add = ' ';
+        newChar = ' ';
       }
-      pyramid(n, row, level + add);
+      pyramid(n, row, level + newChar);
 
 }
 

@@ -21,12 +21,24 @@ function validate(node, min = null, max = null) {
         return false;
     }
 
-    if (node.left && !validate(node.left, min, node.data)) {
-        return false;
+    // if (node.left && !validate(node.left, min, node.data)) {
+    //     return false;
+    // }
+
+    // if (node.right && !validate(node.right, node.data, max)) {
+    //     return false;
+    // }
+
+    if (node.left) {
+        if (!validate(node.left, min, node.data)) {
+            return false;
+        } 
     }
 
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
+    if (node.right) {
+        if (!validate(node.right, node.data, max)) {
+            return false;
+        } 
     }
 
     return true;
