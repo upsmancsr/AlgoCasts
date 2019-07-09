@@ -10,7 +10,9 @@
 // ie, lesser values to the lest and greater values to the right
 // Remember to keep track of min and max for the whole tree,
 // and compare each node to the min and max, rather than the parent node value
+// As you move down the left, the max is updated; as you move down the right, the min value is updated
 
+// On first call of validate, min and max are null
 function validate(node, min = null, max = null) {
 
     if (max !== null && node.data > max) {
@@ -21,6 +23,23 @@ function validate(node, min = null, max = null) {
         return false;
     }
 
+    if (node.left) {
+        // validate is called recursively, with node.left as node, min (null) as min, and node.data as max,
+        // until it returns false or end of left side is reached.
+        // false would be returned from conditional above, therefore !validate would be true, 
+        // and the following conditional would return false:
+        if (!validate(node.left, min, node.data)) {  
+            return false;
+        } 
+    }
+
+    if (node.right) {
+        // repeat process from above, but on the right side, updating min with node.data at each step:
+        if (!validate(node.right, node.data, max)) {
+            return false;
+        } 
+    }
+
     // if (node.left && !validate(node.left, min, node.data)) {
     //     return false;
     // }
@@ -29,18 +48,7 @@ function validate(node, min = null, max = null) {
     //     return false;
     // }
 
-    if (node.left) {
-        if (!validate(node.left, min, node.data)) {
-            return false;
-        } 
-    }
-
-    if (node.right) {
-        if (!validate(node.right, node.data, max)) {
-            return false;
-        } 
-    }
-
+    // if left and right have been fully traversed with no false returned, return true:
     return true;
 }
 
