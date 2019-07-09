@@ -54,12 +54,11 @@ function memoize(fn) {
         
         // If there's an entry in the cache corresponding to args, return that cache value
         if (cache[args]) {
-            // console.log(cache);
             return cache[args];
         }
         // else...
-        // apply input function fib using args to get result:
-        const newResult = fn.apply(null, args);  // fn.apply(this, args) also works
+        // apply input function slowFib using args to get result:
+        const newResult = fn.apply(this, args);  // fn.apply(null, args) also works
         // store result in the cache:
         cache[args] = newResult;
         // return newResult, ie, return it where fib is called in slowFib
@@ -71,7 +70,7 @@ function slowFib(n) {                   // an initial call of fib(n) calls this 
     if (n < 2) {
         return n;
     }
-    return fib(n - 1) + fib(n - 2); // these recursive calls to fib call memoized fib defined below, not the original fib function
+    return fib(n - 1) + fib(n - 2); // these recursive calls to fib call memoized fib defined below
 }
 
 fib = memoize(slowFib);

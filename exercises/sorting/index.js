@@ -22,13 +22,31 @@ function bubbleSort(arr) {
     return arr;
 }
 
+// function selectionSort(arr) {
+//     // for loop over length of arr, from i = 0 to i < arr.length:
+//     for (let i = 0; i < arr.length; i++) {
+//         // at each element i, for loop from 0 to i (or: 0 to arr.length - 1):
+//         let indexOfMin = i;
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[j] < arr[indexOfMin]) {
+//                 greater = arr[indexOfMin];
+//                 arr[indexOfMin] = arr[j];
+//                 arr[j] = greater;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
 function selectionSort(arr) {
-    // for loop over length of arr:
+    // for loop over length of arr, from i = 0 to i < arr.length:
     for (let i = 0; i < arr.length; i++) {
-        // at each element i, for loop from 0 to i (or: 0 to arr.length - 1):
+        // Assume the element at i is the min in the array and assign i to indexOfMin:
         let indexOfMin = i;
+        // for loop from j = i+1 to j < array.length:
         for (let j = i + 1; j < arr.length; j++) {
             if (arr[j] < arr[indexOfMin]) {
+                // if an element has a lower value than the value at j, swap the values:
                 greater = arr[indexOfMin];
                 arr[indexOfMin] = arr[j];
                 arr[j] = greater;
